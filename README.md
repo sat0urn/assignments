@@ -1,1 +1,1 @@
-# Assignments were done by Kusainov Aslan from group SE-2116
+# Kusainov Aslan from the group "SE-2116"
