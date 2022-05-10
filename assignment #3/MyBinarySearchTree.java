@@ -60,29 +60,30 @@ public class MyBinarySearchTree<K extends Comparable<K>, V> {
                 node = null;
             }
             else if(node.right != null) {
-                node.key = successor(node);
+                node.key = findMinV(node);
                 node.right = delete(node.right, node.key);
             }
             else {
-                node.key = predecessor(node);
+                node.key = findMaxV(node);
                 node.left = delete(node.left, node.key);
             }
         }
         return node;
     }
-    private K successor(Node root) { //find least value below the right child of this root node
-        root = root.right;
-        while(root.left != null){
-            root = root.left;
+    private K findMinV(Node node) {
+        node = node.right;
+        while(node.left != null){
+            node = node.left;
         }
-        return root.key;
+        return node.key;
     }
-    private K predecessor(Node root) { //find greatest value below the left child of this root node
-        root = root.left;
-        while(root.right != null){
-            root = root.right;
+    private K findMaxV(Node node) {
+        node = node.left;
+        while(node.right != null){
+            node = node.right;
         }
-        return root.key;
+        return node.key;
     }
+
     //public Iterable<K> iterator() {}
 }
